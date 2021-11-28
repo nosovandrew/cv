@@ -1,3 +1,168 @@
-const Home = () => <h1>CV</h1>;
+import { useContext } from 'react';
+import styled from 'styled-components';
+import Image from 'next/image';
+
+import { media } from '@/styles/media';
+import Layout from '@/components/layout';
+import Block from '@/components/block';
+import { TextBlock } from '@/components/text';
+import { UnorderedList } from '@/components/list';
+import SkillsItem from '@/components/skillsItem';
+import Switcher from '@/components/switcher';
+
+const FirstBlock = styled(Block)`
+    height: calc(var(--full-screen-h) + var(--basic-spacing));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+`;
+
+const MeContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media ${media.md} {
+        flex-direction: row;
+    }
+`;
+
+const SkillsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media ${media.md} {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+`;
+
+const ContactBlock = styled(Block)`
+    @media ${media.md} {
+        height: calc(var(--full-screen-h) + var(--basic-spacing));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+    }
+
+    a {
+        display: block;
+        margin: calc(var(--basic-spacing) * 2) 0;
+        text-decoration: none;
+        color: var(--base-text-color);
+        font-family: var(--font-headline);
+        font-size: calc(var(--basic-font-size) * 0.7);
+
+        @media ${media.md} {
+            margin: calc(var(--basic-spacing) / 4) 0;
+        }
+    }
+`;
+
+const ImageContainer = styled.div`
+    width: 226px;
+    height: auto;
+    margin: var(--basic-spacing);
+
+    @media ${media.md} {
+        margin: 0;
+        margin-right: var(--basic-spacing);
+    }
+`;
+
+const Home = () => {
+
+    return (
+        <Layout>
+            <Switcher />
+            <FirstBlock>
+                <MeContainer>
+                    <ImageContainer>
+                        <Image
+                            alt='Аватар'
+                            src='/assets/avatar.png'
+                            layout='intrinsic'
+                            width={452}
+                            height={422}
+                        />
+                    </ImageContainer>
+                    <h1>Андрей Носов</h1>
+                </MeContainer>
+                <TextBlock>
+                    Всем привет! Я занимаюсь web-разработкой, IoT, производством
+                    одежды и прочими штуками. Играю в футбол, занимаюсь спортом,
+                    смотрю кино. Летом ездил на озеро, было жарко. Вроде, больше
+                    нечего сказать...
+                </TextBlock>
+            </FirstBlock>
+            <Block>
+                <h2>Образование</h2>
+                <UnorderedList>
+                    <li>
+                        2015-2019: УрФУ (Екб)<br />
+                        Бакалавриат “Информационные системы и технологии”<br />
+                        Диплом: “Система вычисления габаритных характеристик
+                        прямоугольных объектов с помощью камеры”
+                    </li>
+                    <li>2017-2018: Яндекс (Екб)<br />Курсы по фронтенду в УрФУ</li>
+                    <li>
+                        2019-2021: Университет ИТМО (СПб)<br />Магистратура
+                        “Вычислительные системы и сети”<br />Диплом: “Решение
+                        задачи выбора оптимальной технологической платформы для
+                        систем IoT в конкретных проектах”
+                    </li>
+                </UnorderedList>
+            </Block>
+            <Block>
+                <h2>Опыт работы</h2>
+            </Block>
+            <Block>
+                <h2>Знания</h2>
+                <SkillsContainer>
+                    <SkillsItem>
+                        <h3>dev</h3>
+                        <p>JavaScript/HTML/CSS</p>
+                        <p>API: REST/GraphQL</p>
+                        <p>DB: NoSQL (MongoDB)</p>
+                        <p>React.JS (Next.JS)</p>
+                        <p>Небольшой опыт React Native</p>
+                        <p>Git</p>
+                    </SkillsItem>
+                    <SkillsItem>
+                        <h3>design</h3>
+                        <p>Figma</p>
+                        <p>Ai/Ap/Ae (Adobe)</p>
+                    </SkillsItem>
+                    <SkillsItem>
+                        <h3>iot</h3>
+                        <p>C/C++, Python</p>
+                        <p>Прикладной уровень:<br />MQTT, AMQP, DDS, CoAP и т.п.</p>
+                        <p>Построение систем с ESP, Raspberry Pi</p>
+                        <p>IDE: ArduinoIDE, PlatformIO</p>
+                        <p>Wireshark</p>
+                        <p>(все в рамках обучения в университете)</p>
+                    </SkillsItem>
+                    <SkillsItem>
+                        <h3>eng</h3>
+                        <p>B1-B2 (Intermediate+)</p>
+                        <p>Курсы на англ. языке (ИТМО)</p>
+                        <p>*свободно работаю с<br />профильной информацией</p>
+                    </SkillsItem>
+                    <SkillsItem>
+                        <h3 style={{ margin: 0 }}>open for new!</h3>
+                    </SkillsItem>
+                </SkillsContainer>
+            </Block>
+            <ContactBlock>
+                <h2>Контакты</h2>
+                <a href='mailto:drenosov@gmail.com'>drenosov@gmail.com</a>
+                <a href='tel:+79920201025'>+7-992-020-10-25</a>
+                <a href='https://t.me/andrewnosov'>TG@andrewnosov</a>
+            </ContactBlock>
+        </Layout>
+    );
+};
 
 export default Home;
