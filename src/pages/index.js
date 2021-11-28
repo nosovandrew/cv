@@ -11,7 +11,7 @@ import SkillsItem from '@/components/skillsItem';
 import Switcher from '@/components/switcher';
 
 const FirstBlock = styled(Block)`
-    height: calc(var(--full-screen-h) + var(--basic-spacing));
+    min-height: calc(var(--full-screen-h) + var(--basic-spacing));
     display: flex;
     flex-direction: column;
     justify-content: center;
