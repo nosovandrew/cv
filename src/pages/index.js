@@ -37,8 +37,20 @@ const SkillsContainer = styled.div`
     }
 `;
 
-// work experience blocks
-const ExperienceBlock = styled(Block)``;
+// work experience blocks <<< START >>>
+
+const ExperienceBlock = styled(Block)`
+    & > div {
+        margin-bottom: var(--basic-spacing);
+    }
+`;
+
+const StyledCoverVideo = styled.video`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--basic-spacing) / 2);
+`;
 
 const ExperienceBlockText = styled.div`
     margin-top: var(--basic-spacing);
@@ -62,13 +74,6 @@ const TelegramBotContainer = styled.div`
     }
 `;
 
-const StyledCoverVideo = styled.video`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: calc(var(--basic-spacing) / 2);
-`;
-
 const TgBotCover = styled(StyledCoverVideo)`
     width: 100%;
     height: auto;
@@ -77,6 +82,22 @@ const TgBotCover = styled(StyledCoverVideo)`
         width: 400px;
     }
 `;
+
+const EightiesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    .image-wrapper {
+        width: 100%;
+        height: auto;
+
+        img {
+            border-radius: calc(var(--basic-spacing) / 2);
+        }
+    }
+`;
+
+// work experience blocks <<< END >>>
 
 const ContactBlock = styled(Block)`
     @media ${media.md} {
@@ -186,6 +207,20 @@ const Home = () => {
                         </p>
                     </ExperienceBlockText>
                 </TelegramBotContainer>
+                <EightiesContainer>
+                    <ExperienceBlockText style={{ margin: 0 }}>
+                        <div className='image-wrapper'>
+                            <Image
+                                alt='Магазин 80 Religion'
+                                src='/assets/experience/eighties-cover.png'
+                                layout='intrinsic'
+                                width={1200}
+                                height={900}
+                            />
+                        </div>
+                        <h3>Магазин 80 Religion</h3>
+                    </ExperienceBlockText>
+                </EightiesContainer>
             </ExperienceBlock>
             <Block>
                 <h2>Знания</h2>
@@ -242,16 +277,16 @@ const Home = () => {
                         alt='Переключатель (вкл.)'
                         src='/assets/postbox.png'
                         layout='fixed'
-                        width={120}
-                        height={120}
+                        width={80}
+                        height={80}
                     />
                     <Image
                         priority
                         alt='Переключатель (вкл.)'
                         src='/assets/partying-face.png'
                         layout='fixed'
-                        width={120}
-                        height={120}
+                        width={80}
+                        height={80}
                     />
                 </EmogiContainer>
             </ContactBlock>
