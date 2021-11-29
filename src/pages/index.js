@@ -44,7 +44,7 @@ const ExperienceBlockText = styled.div`
     margin-top: var(--basic-spacing);
 
     h3 {
-        color: var(--text-primary)
+        color: var(--text-primary);
     }
 
     @media ${media.md} {
@@ -144,25 +144,24 @@ const Home = () => {
                 <h2>Образование</h2>
                 <UnorderedList>
                     <li>
-                        2015-2019: УрФУ (Екб)
-                        <br />
-                        Бакалавриат “Информационные системы и технологии”
-                        <br />
-                        Диплом: “Вычисление размеров объекта по камерам”
+                        <p>2015-2019: УрФУ (Екб)</p>
+                        <p>
+                            Бакалавриат: “Информационные системы и технологии”
+                        </p>
+                        <p>Диплом: “Вычисление размеров объекта по камерам”</p>
                     </li>
                     <li>
-                        2017-2018: Яндекс (Екб)
-                        <br />
-                        Курсы по фронтенду в УрФУ
+                        <p>2017-2018: Яндекс (Екб)</p>
+                        <p>Курсы по фронтенду в УрФУ</p>
                     </li>
                     <li>
-                        2019-2021: Университет ИТМО (СПб)
-                        <br />
-                        Магистратура “Вычислительные системы и сети”
-                        <br />
-                        Диплом: “Решение задачи выбора оптимальной
-                        технологической платформы для систем IoT в конкретных
-                        проектах”
+                        <p>2019-2021: Университет ИТМО (СПб)</p>
+                        <p>Магистратура “Вычислительные системы и сети”</p>
+                        <p>
+                            Диплом: “Решение задачи выбора оптимальной
+                            технологической платформы для систем IoT в
+                            конкретных проектах”
+                        </p>
                     </li>
                 </UnorderedList>
             </Block>
@@ -170,12 +169,21 @@ const Home = () => {
                 <h2>Опыт работы</h2>
                 <TelegramBotContainer>
                     <TgBotCover autoPlay muted loop>
-                        <source src='https://res.cloudinary.com/nosov/video/upload/v1638177851/nosov-cv/crmbot_pexm4w.webm' type='video/webm' />
-                        <source src='https://res.cloudinary.com/nosov/video/upload/v1638177851/nosov-cv/crmbot_fg4tbu.mp4' type='video/mp4' />
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638177851/nosov-cv/crmbot_pexm4w.webm'
+                            type='video/webm'
+                        />
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638177851/nosov-cv/crmbot_fg4tbu.mp4'
+                            type='video/mp4'
+                        />
                     </TgBotCover>
                     <ExperienceBlockText>
                         <h3>Telegram-бот</h3>
-                        <p>Разработка для получения уведомлений и данных из формы сайта в Telegram-мессенджер.</p>
+                        <p>
+                            Разработка для получения уведомлений и данных из
+                            формы сайта в Telegram-мессенджер.
+                        </p>
                     </ExperienceBlockText>
                 </TelegramBotContainer>
             </ExperienceBlock>

@@ -10,11 +10,16 @@ const StyledUl = styled.ul`
         theme === 'light'
             ? `list-style-image: url('/assets/list-dot.png');`
             : `list-style-image: url('/assets/list-dot-dark.png');`}
-    list-style-position: outside;
+    list-style-position: inside;
+    padding-left: 0;
 
     & > li {
         margin: var(--basic-spacing) 0;
-        padding-left: calc(var(--basic-spacing) / 2);
+        padding-left: 0;
+
+        p {
+            margin: .2em 0;
+        }
 
         @media ${media.md} {
             padding-left: calc(var(--basic-spacing) / 6);
