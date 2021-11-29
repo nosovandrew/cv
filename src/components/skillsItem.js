@@ -18,7 +18,7 @@ const SkillsItem = styled.div`
     p {
         margin: .5em 0;
         color: var(--text-secondary);
-        font-size: calc(var(--basic-font-size) * 0.75);
+        font-size: calc(var(--basic-font-size) * 0.8);
     }
 
     @media ${media.md} {

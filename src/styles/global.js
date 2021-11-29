@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
         --text-secondary: hsla(var(--base-white), 100%);
         --headline-secondary: hsla(var(--palette-orange-56), 100%);
         /* Spacing */
-        --basic-spacing: 20px;
+        --basic-spacing: 18px;
         --full-screen-h: calc(100vh - 2*var(--basic-spacing)); // minus global padding (top+bottom)
         /* Font */
         --font-serif: 'IBM Plex Serif', 'Times New Roman', Times, serif;
@@ -102,9 +102,11 @@ const GlobalStyle = createGlobalStyle`
 
     h1 {
         font-size: 50px;
+        line-height: 55px;
 
         @media ${media.md} {
             font-size: 80px;
+            line-height: 80px;
         }
     }
 

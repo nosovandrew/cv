@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '@/contexts/theme/context';
 
 const SwitcherContainer = styled.button`
+    padding: 0;
     border: none;
     background-color: transparent;
     cursor: pointer;
