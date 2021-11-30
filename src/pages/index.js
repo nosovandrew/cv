@@ -97,6 +97,42 @@ const EightiesContainer = styled.div`
     }
 `;
 
+const WebnosContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media ${media.md} {
+        flex-direction: row;
+    }
+`;
+
+const WebnosCover = styled(StyledCoverVideo)`
+    width: 100%;
+    height: auto;
+
+    @media ${media.md} {
+        width: 400px;
+    }
+`;
+
+const IotContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media ${media.md} {
+        flex-direction: row;
+    }
+`;
+
+const IotCover = styled(StyledCoverVideo)`
+    width: 100%;
+    height: auto;
+
+    @media ${media.md} {
+        width: 400px;
+    }
+`;
+
 // work experience blocks <<< END >>>
 
 const ContactBlock = styled(Block)`
@@ -188,6 +224,42 @@ const Home = () => {
             </Block>
             <ExperienceBlock>
                 <h2>Опыт работы</h2>
+                <IotContainer>
+                    <IotCover autoPlay muted loop>
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638253227/nosov-cv/iot_urpzvd.webm'
+                            type='video/webm'
+                        />
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638253227/nosov-cv/iot_xoyhp0.mp4'
+                            type='video/mp4'
+                        />
+                    </IotCover>
+                    <ExperienceBlockText>
+                        <h3>Internet of Things</h3>
+                        <p>
+                            KuKu Epta 2!
+                        </p>
+                    </ExperienceBlockText>
+                </IotContainer>
+                <WebnosContainer>
+                    <WebnosCover autoPlay muted loop>
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638249272/nosov-cv/webnos_vk18wy.webm'
+                            type='video/webm'
+                        />
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638249272/nosov-cv/webnos_wrwwuj.mp4'
+                            type='video/mp4'
+                        />
+                    </WebnosCover>
+                    <ExperienceBlockText>
+                        <h3>Студия Webnos</h3>
+                        <p>
+                            KuKu Epta!
+                        </p>
+                    </ExperienceBlockText>
+                </WebnosContainer>
                 <TelegramBotContainer>
                     <TgBotCover autoPlay muted loop>
                         <source
@@ -202,8 +274,8 @@ const Home = () => {
                     <ExperienceBlockText>
                         <h3>Telegram-бот</h3>
                         <p>
-                            Разработка для получения уведомлений и данных из
-                            формы сайта в Telegram-мессенджер.
+                            Разработан для получения уведомлений о новых заявках из
+                            формы с сайта в Telegram-мессенджер.
                         </p>
                     </ExperienceBlockText>
                 </TelegramBotContainer>
@@ -214,8 +286,8 @@ const Home = () => {
                                 alt='Магазин 80 Religion'
                                 src='/assets/experience/eighties-cover.png'
                                 layout='intrinsic'
-                                width={1200}
-                                height={900}
+                                width={1800}
+                                height={1350}
                             />
                         </div>
                         <h3>Магазин 80 Religion</h3>
