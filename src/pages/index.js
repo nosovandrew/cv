@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { getPlaiceholder } from 'plaiceholder';
 
 import { media } from '@/styles/media';
 import Layout from '@/components/layout';
@@ -8,6 +9,8 @@ import { TextBlock } from '@/components/text';
 import { UnorderedList } from '@/components/list';
 import SkillsItem from '@/components/skillsItem';
 import Switcher from '@/components/switcher';
+
+import { getProjectCoverPaths } from '@/lib/images';
 
 const FirstBlock = styled(Block)`
     min-height: calc(var(--full-screen-h) + var(--basic-spacing));
@@ -203,7 +206,27 @@ const EmogiContainer = styled.div`
     margin-top: var(--basic-spacing);
 `;
 
-const Home = () => {
+// get base64 placeholder for expereince item image
+export const getStaticProps = async () => {
+    const paths = getProjectCoverPaths(); // images paths array
+    // get blur for each image
+    const imagesWithBlur = paths.map(async (item) => {
+        const { base64, img } = await getPlaiceholder(item.path);
+        return {
+            filename: item.filename,
+            ...img,
+            blurDataURL: base64,
+        };
+    });
+
+    return {
+        props: {
+            images: await Promise.all(imagesWithBlur),
+        },
+    };
+};
+
+const Home = ({ images }) => {
     return (
         <Layout>
             <Switcher />
@@ -221,7 +244,12 @@ const Home = () => {
                     <h1>Андрей Носов</h1>
                 </MeContainer>
                 <TextBlock>
-                    Привет! Мне 24, занимаюсь web-разработкой и дизайном, также интересна область IoT (дипломный проект в магистратуре). Есть опыт создания законченных web-продуктов в рамках организованной мною web-студии. В своих проектах уделяю дизайну особое внимание, стараясь с его помощью достичь поставленных задач.
+                    Привет! Мне 24, занимаюсь web-разработкой и дизайном, также
+                    интересна область IoT (дипломный проект в магистратуре).
+                    Есть опыт создания цельных web-продуктов в рамках
+                    организованной мною web-студии. В своих проектах уделяю
+                    дизайну особое внимание, стараясь с его помощью достичь
+                    поставленных задач.
                 </TextBlock>
             </FirstBlock>
             <Block>
@@ -232,7 +260,10 @@ const Home = () => {
                         <p>
                             Бакалавриат: “Информационные системы и технологии”
                         </p>
-                        <p>Диплом: “Вычисление размеров объекта по камерам”</p>
+                        <p>
+                            Диплом: “Вычисление размеров объекта с помошью
+                            камер”
+                        </p>
                     </li>
                     <li>
                         <p>2017-2018: Яндекс (Екб)</p>
@@ -242,8 +273,8 @@ const Home = () => {
                         <p>2019-2021: Университет ИТМО (СПб)</p>
                         <p>Магистратура “Вычислительные системы и сети”</p>
                         <p>
-                            Диплом: “Выбор оптимальной
-                            технологической платформы для IoT-систем”
+                            Диплом: “Выбор оптимальной технологической платформы
+                            для IoT-систем”
                         </p>
                     </li>
                 </UnorderedList>
@@ -263,7 +294,12 @@ const Home = () => {
                     </VideoCard>
                     <ExperienceBlockText>
                         <h3>Студия Webnos</h3>
-                        <p>Моя web-студия, запущена в октябре 2020. Занимаюсь разработкой и дизайном web-продуктов. На данный момент стараюсь больше работать в направлении e-commerce.</p>
+                        <p>
+                            Моя web-студия, запущена в октябре 2020. Занимаюсь
+                            разработкой и дизайном web-продуктов. На данный
+                            момент стараюсь больше работать в направлении
+                            e-commerce.
+                        </p>
                     </ExperienceBlockText>
                 </WebnosContainer>
                 <IotContainer>
@@ -279,8 +315,17 @@ const Home = () => {
                     </VideoCard>
                     <ExperienceBlockText>
                         <h3>Internet of Things</h3>
-                        <p>Магистратура в ИТМО. Разработка справочника по выбору оптимального протокола прикладного уровня для IoT-системы с опредленными свойствами.</p>
-                        <p>По ходу работы строил простейшие системы, благодаря которым познакомился с популярными протоклами (MQTT, AMQP, CoAP и т.п.), а также некоторым аппаратным обеспечением (ESP, Raspberry Pi).</p>
+                        <p>
+                            Магистратура в ИТМО. Разработка справочника по
+                            выбору оптимального протокола прикладного уровня для
+                            IoT-системы с опредленными свойствами.
+                        </p>
+                        <p>
+                            По ходу работы строил простейшие системы, благодаря
+                            которым познакомился с популярными протоклами (MQTT,
+                            AMQP, CoAP и т.п.), а также некоторым аппаратным
+                            обеспечением (ESP, Raspberry Pi).
+                        </p>
                     </ExperienceBlockText>
                 </IotContainer>
                 <EightiesContainer>
@@ -291,6 +336,8 @@ const Home = () => {
                             layout='intrinsic'
                             width={1800}
                             height={1350}
+                            placeholder='blur'
+                            blurDataURL={images.find((item) => item.filename === 'eighties-cover').blurDataURL}
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
@@ -312,7 +359,8 @@ const Home = () => {
                         <h3>Telegram-бот</h3>
                         <p>
                             Разработан для получения уведомлений о новых заявках
-                            из формы с сайта в Telegram-мессенджер. Используется в собственных проектах.
+                            из формы с сайта в Telegram-мессенджер. Используется
+                            в собственных проектах.
                         </p>
                     </ExperienceBlockText>
                 </TelegramBotContainer>
@@ -324,6 +372,8 @@ const Home = () => {
                             layout='intrinsic'
                             width={1801}
                             height={1350}
+                            placeholder='blur'
+                            blurDataURL={images.find((item) => item.filename === 'lotos-cover').blurDataURL}
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
@@ -338,14 +388,16 @@ const Home = () => {
                             layout='intrinsic'
                             width={901}
                             height={900}
+                            placeholder='blur'
+                            blurDataURL={images.find((item) => item.filename === 'mediator-cover').blurDataURL}
                         />
                     </div>
                     <ExperienceBlockText>
                         <h3>Юр. компания Mediator</h3>
                         <p>
                             Сотрудничаем с апреля 2021. Сделано несколько
-                            лендингов, а также в работе находится сервис по поиску
-                            юридических документов.
+                            лендингов, а также в работе находится сервис по
+                            поиску юридических документов.
                         </p>
                     </ExperienceBlockText>
                 </MediatorContainer>
@@ -357,6 +409,8 @@ const Home = () => {
                             layout='intrinsic'
                             width={1801}
                             height={1350}
+                            placeholder='blur'
+                            blurDataURL={images.find((item) => item.filename === 'ugses-cover').blurDataURL}
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
