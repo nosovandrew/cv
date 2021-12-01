@@ -47,9 +47,15 @@ const ExperienceBlock = styled(Block)`
 
 const StyledCoverVideo = styled.video`
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: calc(var(--basic-spacing) / 2);
+`;
+
+const VideoCard = styled(StyledCoverVideo)`
+    @media ${media.md} {
+        width: 400px;
+    }
 `;
 
 const ExperienceBlockText = styled.div`
@@ -62,6 +68,7 @@ const ExperienceBlockText = styled.div`
     @media ${media.md} {
         margin: 0;
         margin-left: var(--basic-spacing);
+        width: 80%;
     }
 `;
 
@@ -71,15 +78,6 @@ const TelegramBotContainer = styled.div`
 
     @media ${media.md} {
         flex-direction: row;
-    }
-`;
-
-const TgBotCover = styled(StyledCoverVideo)`
-    width: 100%;
-    height: auto;
-
-    @media ${media.md} {
-        width: 400px;
     }
 `;
 
@@ -106,15 +104,6 @@ const WebnosContainer = styled.div`
     }
 `;
 
-const WebnosCover = styled(StyledCoverVideo)`
-    width: 100%;
-    height: auto;
-
-    @media ${media.md} {
-        width: 400px;
-    }
-`;
-
 const IotContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -124,12 +113,53 @@ const IotContainer = styled.div`
     }
 `;
 
-const IotCover = styled(StyledCoverVideo)`
-    width: 100%;
-    height: auto;
+const LotosContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    .image-wrapper {
+        width: 100%;
+        height: auto;
+
+        img {
+            border-radius: calc(var(--basic-spacing) / 2);
+        }
+    }
+`;
+
+const MediatorContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 
     @media ${media.md} {
-        width: 400px;
+        flex-direction: row;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: auto;
+
+        @media ${media.md} {
+            width: 400px;
+        }
+
+        img {
+            border-radius: calc(var(--basic-spacing) / 2);
+        }
+    }
+`;
+
+const UgsesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    .image-wrapper {
+        width: 100%;
+        height: auto;
+
+        img {
+            border-radius: calc(var(--basic-spacing) / 2);
+        }
     }
 `;
 
@@ -224,26 +254,8 @@ const Home = () => {
             </Block>
             <ExperienceBlock>
                 <h2>Опыт работы</h2>
-                <IotContainer>
-                    <IotCover autoPlay muted loop>
-                        <source
-                            src='https://res.cloudinary.com/nosov/video/upload/v1638253227/nosov-cv/iot_urpzvd.webm'
-                            type='video/webm'
-                        />
-                        <source
-                            src='https://res.cloudinary.com/nosov/video/upload/v1638253227/nosov-cv/iot_xoyhp0.mp4'
-                            type='video/mp4'
-                        />
-                    </IotCover>
-                    <ExperienceBlockText>
-                        <h3>Internet of Things</h3>
-                        <p>
-                            KuKu Epta 2!
-                        </p>
-                    </ExperienceBlockText>
-                </IotContainer>
                 <WebnosContainer>
-                    <WebnosCover autoPlay muted loop>
+                    <VideoCard autoPlay muted loop>
                         <source
                             src='https://res.cloudinary.com/nosov/video/upload/v1638249272/nosov-cv/webnos_vk18wy.webm'
                             type='video/webm'
@@ -252,16 +264,44 @@ const Home = () => {
                             src='https://res.cloudinary.com/nosov/video/upload/v1638249272/nosov-cv/webnos_wrwwuj.mp4'
                             type='video/mp4'
                         />
-                    </WebnosCover>
+                    </VideoCard>
                     <ExperienceBlockText>
                         <h3>Студия Webnos</h3>
-                        <p>
-                            KuKu Epta!
-                        </p>
+                        <p>KuKu Epta!</p>
                     </ExperienceBlockText>
                 </WebnosContainer>
+                <IotContainer>
+                    <VideoCard autoPlay muted loop>
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638344766/nosov-cv/iot_zkhet6.webm'
+                            type='video/webm'
+                        />
+                        <source
+                            src='https://res.cloudinary.com/nosov/video/upload/v1638344766/nosov-cv/iot_h3gvai.mp4'
+                            type='video/mp4'
+                        />
+                    </VideoCard>
+                    <ExperienceBlockText>
+                        <h3>Internet of Things</h3>
+                        <p>KuKu Epta 2!</p>
+                    </ExperienceBlockText>
+                </IotContainer>
+                <EightiesContainer>
+                    <div className='image-wrapper'>
+                        <Image
+                            alt='Магазин 80 Religion'
+                            src='/assets/experience/eighties-cover.png'
+                            layout='intrinsic'
+                            width={1800}
+                            height={1350}
+                        />
+                    </div>
+                    <ExperienceBlockText style={{ margin: 0 }}>
+                        <h3>Магазин 80 Religion</h3>
+                    </ExperienceBlockText>
+                </EightiesContainer>
                 <TelegramBotContainer>
-                    <TgBotCover autoPlay muted loop>
+                    <VideoCard autoPlay muted loop>
                         <source
                             src='https://res.cloudinary.com/nosov/video/upload/v1638177851/nosov-cv/crmbot_pexm4w.webm'
                             type='video/webm'
@@ -270,29 +310,62 @@ const Home = () => {
                             src='https://res.cloudinary.com/nosov/video/upload/v1638177851/nosov-cv/crmbot_fg4tbu.mp4'
                             type='video/mp4'
                         />
-                    </TgBotCover>
+                    </VideoCard>
                     <ExperienceBlockText>
                         <h3>Telegram-бот</h3>
                         <p>
-                            Разработан для получения уведомлений о новых заявках из
-                            формы с сайта в Telegram-мессенджер.
+                            Разработан для получения уведомлений о новых заявках
+                            из формы с сайта в Telegram-мессенджер.
                         </p>
                     </ExperienceBlockText>
                 </TelegramBotContainer>
-                <EightiesContainer>
+                <LotosContainer>
+                    <div className='image-wrapper'>
+                        <Image
+                            alt='Стартап LotosLab'
+                            src='/assets/experience/lotos-cover.png'
+                            layout='intrinsic'
+                            width={1801}
+                            height={1350}
+                        />
+                    </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
-                        <div className='image-wrapper'>
-                            <Image
-                                alt='Магазин 80 Religion'
-                                src='/assets/experience/eighties-cover.png'
-                                layout='intrinsic'
-                                width={1800}
-                                height={1350}
-                            />
-                        </div>
-                        <h3>Магазин 80 Religion</h3>
+                        <h3>Дизайн для стартапа LotosLab</h3>
                     </ExperienceBlockText>
-                </EightiesContainer>
+                </LotosContainer>
+                <MediatorContainer>
+                    <div className='image-wrapper'>
+                        <Image
+                            alt='Юр. компания Mediator'
+                            src='/assets/experience/mediator-cover.png'
+                            layout='intrinsic'
+                            width={901}
+                            height={900}
+                        />
+                    </div>
+                    <ExperienceBlockText>
+                        <h3>Юр. компания Mediator</h3>
+                        <p>
+                            Сотрудничаем с апреля 2021. Сделано несколько
+                            лендингов, а также в работе сервис по поиску
+                            документов.
+                        </p>
+                    </ExperienceBlockText>
+                </MediatorContainer>
+                <UgsesContainer>
+                    <div className='image-wrapper'>
+                        <Image
+                            alt='Сайт для частного дезинфекционного предприятия "Юг СЭС"'
+                            src='/assets/experience/ugses-cover.png'
+                            layout='intrinsic'
+                            width={1801}
+                            height={1350}
+                        />
+                    </div>
+                    <ExperienceBlockText style={{ margin: 0 }}>
+                        <h3>Сайт для Юг СЭС</h3>
+                    </ExperienceBlockText>
+                </UgsesContainer>
             </ExperienceBlock>
             <Block>
                 <h2>Знания</h2>

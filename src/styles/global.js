@@ -93,10 +93,12 @@ const GlobalStyle = createGlobalStyle`
         font-family: var(--font-headline);
         color: var(--headline-primary);
         font-size: 32px;
+        line-height: 50px;
         font-weight: var(--headline-font-weight);
 
         @media ${media.md} {
             font-size: 40px;
+            line-height: 55px;
         }
     }
 
