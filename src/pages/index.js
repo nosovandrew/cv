@@ -9,6 +9,7 @@ import { TextBlock } from '@/components/text';
 import { UnorderedList } from '@/components/list';
 import SkillsItem from '@/components/skillsItem';
 import Switcher from '@/components/switcher';
+import { AnchorButton } from '@/components/button';
 
 import { getProjectCoverPaths } from '@/lib/images';
 
@@ -251,10 +252,10 @@ const Home = ({ images }) => {
                     Привет! Мне 24, занимаюсь web-разработкой и дизайном, также
                     интересна область IoT (дипломный проект в магистратуре).
                     Есть опыт создания цельных web-продуктов в рамках
-                    организованной мною web-студии. В своих проектах уделяю
-                    дизайну особое внимание, стараясь с его помощью достичь
-                    поставленных задач.
+                    организованной мною web-студии. Уделяю особое внимание
+                    дизайну, стараясь с его помощью достичь поставленных задач.
                 </TextBlock>
+                <AnchorButton href='#contact'>Контакты</AnchorButton>
             </FirstBlock>
             <Block>
                 <h2>Образование</h2>
@@ -479,13 +480,16 @@ const Home = ({ images }) => {
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
-                        <h3>Сайт для Юг СЭС <a
+                        <h3>
+                            Сайт для Юг СЭС{' '}
+                            <a
                                 href='https://demo-disinfection.netlify.app/'
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
                                 жми чтобы посмотреть
-                            </a></h3>
+                            </a>
+                        </h3>
                     </ExperienceBlockText>
                 </UgsesContainer>
             </ExperienceBlock>
@@ -534,7 +538,7 @@ const Home = ({ images }) => {
                 </SkillsContainer>
             </Block>
             <ContactBlock>
-                <h2>Контакты</h2>
+                <h2 id="contact">Контакты</h2>
                 <a href='mailto:drenosov@gmail.com'>drenosov@gmail.com</a>
                 <a href='tel:+79920201025'>+7-992-020-10-25</a>
                 <a href='https://t.me/andrewnosov'>TG@andrewnosov</a>
