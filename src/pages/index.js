@@ -68,6 +68,10 @@ const ExperienceBlockText = styled.div`
         color: var(--text-primary);
     }
 
+    a {
+        color: var(--text-primary);
+    }
+
     @media ${media.md} {
         margin: 0;
         margin-left: var(--basic-spacing);
@@ -294,6 +298,13 @@ const Home = ({ images }) => {
                     </VideoCard>
                     <ExperienceBlockText>
                         <h3>Студия Webnos</h3>
+                        <a
+                            href='https://webnos.online'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            жми чтобы посмотреть
+                        </a>
                         <p>
                             Моя web-студия, запущена в октябре 2020. Занимаюсь
                             разработкой и дизайном web-продуктов. На данный
@@ -316,15 +327,21 @@ const Home = ({ images }) => {
                     <ExperienceBlockText>
                         <h3>Internet of Things</h3>
                         <p>
-                            Магистратура в ИТМО. Разработка справочника по
-                            выбору оптимального протокола прикладного уровня для
-                            IoT-системы с опредленными свойствами.
+                            Магистратура в ИТМО. Справочник по выбору
+                            оптимального протокола прикладного уровня для
+                            IoT-системы с опредленными свойствами.{' '}
+                            <a
+                                href='https://github.com/nosovandrew/iot-app-layer-guide'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                Смотреть проект.
+                            </a>
                         </p>
                         <p>
-                            По ходу работы строил простейшие системы, благодаря
-                            которым познакомился с популярными протоклами (MQTT,
-                            AMQP, CoAP и т.п.), а также некоторым аппаратным
-                            обеспечением (ESP, Raspberry Pi).
+                            В ходе работы строил простейшие системы, благодаря
+                            которым познакомился с популярными протоклами, а
+                            также некоторым аппаратным обеспечением.
                         </p>
                     </ExperienceBlockText>
                 </IotContainer>
@@ -337,11 +354,24 @@ const Home = ({ images }) => {
                             width={1800}
                             height={1350}
                             placeholder='blur'
-                            blurDataURL={images.find((item) => item.filename === 'eighties-cover').blurDataURL}
+                            blurDataURL={
+                                images.find(
+                                    (item) => item.filename === 'eighties-cover'
+                                ).blurDataURL
+                            }
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
-                        <h3>Магазин 80 Religion</h3>
+                        <h3>
+                            Магазин 80{' '}
+                            <a
+                                href='https://eighties.vercel.app'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                жми чтобы посмотреть
+                            </a>
+                        </h3>
                     </ExperienceBlockText>
                 </EightiesContainer>
                 <TelegramBotContainer>
@@ -357,6 +387,13 @@ const Home = ({ images }) => {
                     </VideoCard>
                     <ExperienceBlockText>
                         <h3>Telegram-бот</h3>
+                        <a
+                            href='https://webnos.online/work/crmbot'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            жми чтобы посмотреть
+                        </a>
                         <p>
                             Разработан для получения уведомлений о новых заявках
                             из формы с сайта в Telegram-мессенджер. Используется
@@ -373,11 +410,24 @@ const Home = ({ images }) => {
                             width={1801}
                             height={1350}
                             placeholder='blur'
-                            blurDataURL={images.find((item) => item.filename === 'lotos-cover').blurDataURL}
+                            blurDataURL={
+                                images.find(
+                                    (item) => item.filename === 'lotos-cover'
+                                ).blurDataURL
+                            }
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
-                        <h3>Дизайн для стартапа LotosLab</h3>
+                        <h3>
+                            Стартап LotosLab{' '}
+                            <a
+                                href='https://lotoslab.ru/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                жми чтобы посмотреть
+                            </a>
+                        </h3>
                     </ExperienceBlockText>
                 </LotosContainer>
                 <MediatorContainer>
@@ -389,15 +439,26 @@ const Home = ({ images }) => {
                             width={901}
                             height={900}
                             placeholder='blur'
-                            blurDataURL={images.find((item) => item.filename === 'mediator-cover').blurDataURL}
+                            blurDataURL={
+                                images.find(
+                                    (item) => item.filename === 'mediator-cover'
+                                ).blurDataURL
+                            }
                         />
                     </div>
                     <ExperienceBlockText>
                         <h3>Юр. компания Mediator</h3>
                         <p>
                             Сотрудничаем с апреля 2021. Сделано несколько
-                            лендингов, а также в работе находится сервис по
-                            поиску юридических документов.
+                            лендингов, а также в работе находится{' '}
+                            <a
+                                href='https://mediator-search.vercel.app/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                сервис
+                            </a>{' '}
+                            по поиску юридических документов.
                         </p>
                     </ExperienceBlockText>
                 </MediatorContainer>
@@ -410,11 +471,21 @@ const Home = ({ images }) => {
                             width={1801}
                             height={1350}
                             placeholder='blur'
-                            blurDataURL={images.find((item) => item.filename === 'ugses-cover').blurDataURL}
+                            blurDataURL={
+                                images.find(
+                                    (item) => item.filename === 'ugses-cover'
+                                ).blurDataURL
+                            }
                         />
                     </div>
                     <ExperienceBlockText style={{ margin: 0 }}>
-                        <h3>Сайт для Юг СЭС</h3>
+                        <h3>Сайт для Юг СЭС <a
+                                href='https://demo-disinfection.netlify.app/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                жми чтобы посмотреть
+                            </a></h3>
                     </ExperienceBlockText>
                 </UgsesContainer>
             </ExperienceBlock>

@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-const postDirectory = path.join(process.cwd(), 'public/assets/experience');
+const imagesDirectory = path.join(process.cwd(), 'public/assets/experience');
 
 // get image paths
 export const getProjectCoverPaths = () => {
-    const fileNames = fs.readdirSync(postDirectory);
+    const fileNames = fs.readdirSync(imagesDirectory);
 
     return fileNames.map((filename) => {
         return {
