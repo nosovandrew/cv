@@ -1,14 +1,19 @@
 import { useState, createContext } from 'react';
 import GlobalStyle from '@/styles/global';
+import { DefaultSeo } from 'next-seo';
 
+import { SEO } from '../../seo.config';
 import { ThemeContextProvider } from '@/contexts/theme/context';
 
 export default function App({ Component, pageProps }) {
 
     return (
-        <ThemeContextProvider>
+        <>
+            <DefaultSeo {...SEO} />
             <GlobalStyle />
-            <Component {...pageProps} />
-        </ThemeContextProvider>
+            <ThemeContextProvider>
+                <Component {...pageProps} />
+            </ThemeContextProvider>
+        </>
     );
 }

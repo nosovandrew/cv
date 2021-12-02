@@ -1,0 +1,25 @@
+{
+    "lang": "ru",
+    "dir": "ltr",
+    "name": "Разработчик Андрей Носов",
+    "short_name": "Разработчик Носов",
+    "description": "Всем привет! Меня зовут Андрей, я занимаюсь web-разработкой и дизайном, также интересуюсь направлением Internet of Things (дипломный проект в магистратуре).",
+    "display": "standalone",
+    "start_url": "/",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "type": "image/png",
+            "purpose": "any maskable",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+} 

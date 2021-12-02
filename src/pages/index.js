@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { getPlaiceholder } from 'plaiceholder';
+import { NextSeo } from 'next-seo';
 
 import { media } from '@/styles/media';
 import Layout from '@/components/layout';
@@ -234,6 +235,10 @@ export const getStaticProps = async () => {
 const Home = ({ images }) => {
     return (
         <Layout>
+            <NextSeo
+                title='Носов & Web'
+                description='Всем привет! Меня зовут Андрей, я занимаюсь web-разработкой и дизайном, также интересуюсь направлением Internet of Things (дипломный проект в магистратуре). Максимально открыт для сотрудничества.'
+            />
             <Switcher />
             <FirstBlock>
                 <MeContainer>
@@ -249,11 +254,12 @@ const Home = ({ images }) => {
                     <h1>Андрей Носов</h1>
                 </MeContainer>
                 <TextBlock>
-                    Привет! Мне 24, занимаюсь web-разработкой и дизайном, также
-                    интересна область IoT (дипломный проект в магистратуре).
-                    Есть опыт создания цельных web-продуктов в рамках
-                    организованной мною web-студии. Уделяю особое внимание
-                    дизайну, стараясь с его помощью достичь поставленных задач.
+                    Привет! Мне 24, делаю web-сайты и дизайн, также
+                    интересуюсь направлением IoT (дипломный проект в
+                    магистратуре). Есть опыт создания цельных web-продуктов в
+                    рамках организованной мною web-студии. Уделяю особое
+                    внимание дизайну, стараясь с его помощью достичь
+                    поставленных задач.
                 </TextBlock>
                 <AnchorButton href='#contact'>Контакты</AnchorButton>
             </FirstBlock>
@@ -538,7 +544,7 @@ const Home = ({ images }) => {
                 </SkillsContainer>
             </Block>
             <ContactBlock>
-                <h2 id="contact">Контакты</h2>
+                <h2 id='contact'>Контакты</h2>
                 <a href='mailto:drenosov@gmail.com'>drenosov@gmail.com</a>
                 <a href='tel:+79920201025'>+7-992-020-10-25</a>
                 <a href='https://t.me/andrewnosov'>TG@andrewnosov</a>
