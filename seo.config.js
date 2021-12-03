@@ -32,7 +32,7 @@ export const SEO = {
         {
             rel: 'mask-icon',
             href: '/icons/safari-pinned-tab.svg',
-            color: '#2b8760',
+            color: '#2548F8',
         },
     ],
     additionalMetaTags: [
