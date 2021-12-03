@@ -18,7 +18,7 @@ const Switcher = () => {
         <SwitcherContainer onClick={changeTheme}>
             {theme === 'light' ? (
                 <Image
-                    quality={100}
+                    quality={80}
                     alt='Переключатель (вкл.)'
                     src='/assets/switcher-on.png'
                     layout='fixed'
@@ -27,7 +27,7 @@ const Switcher = () => {
                 />
             ) : (
                 <Image
-                    quality={100}
+                    quality={80}
                     alt='Переключатель (выкл.)'
                     src='/assets/switcher-off.png'
                     layout='fixed'
