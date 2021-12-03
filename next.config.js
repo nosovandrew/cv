@@ -12,9 +12,10 @@ module.exports = withPlugins(
             {
                 pwa: {
                     dest: 'public',
+                    disable: process.env.VERCEL_ENV === 'development',
+                    // fix sw issue (may cause other bugs!)  
                     runtimeCaching,
                     buildExcludes: [/middleware-manifest.json$/],
-                    disable: process.env.VERCEL_ENV === 'development',
                 },
             },
         ],
