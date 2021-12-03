@@ -42,7 +42,7 @@ export const SEO = {
         },
         {
             name: 'theme-color',
-            content: '#ffffff',
+            content: 'var(--theme)',
         },
     ],
 };

@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
         --palette-orange-56: var(--base-orange), 56%;
 
         /* Main vars */
+        --theme: hsla(var(--base-white), 100%);
         --color-primary: hsla(var(--base-white), 100%);
         --text-primary: hsla(var(--base-black), 100%);
         --headline-primary: hsla(var(--palette-blue-56), 100%);
@@ -45,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
 
     [data-theme='dark'] {
         // dark theme style vars
+        --theme: hsla(var(--palette-blue-12), 100%);
         --color-primary: hsla(var(--palette-blue-12), 100%);
         --text-primary: hsla(var(--base-white), 100%);
         --headline-primary: hsla(var(--palette-orange-56), 100%);
