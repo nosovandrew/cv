@@ -60,6 +60,7 @@ const StyledCoverVideo = styled.video`
 const VideoCard = styled(StyledCoverVideo)`
     @media ${media.md} {
         width: 400px;
+        max-height: 600px;
     }
 `;
 
