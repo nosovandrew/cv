@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { getPlaiceholder } from 'plaiceholder';
 import { NextSeo } from 'next-seo';
+import download from 'downloadjs';
 
 import { media } from '@/styles/media';
 import Layout from '@/components/layout';
@@ -10,7 +11,7 @@ import { TextBlock } from '@/components/text';
 import { UnorderedList } from '@/components/list';
 import SkillsItem from '@/components/skillsItem';
 import Switcher from '@/components/switcher';
-import { AnchorButton } from '@/components/button';
+import { AnchorButton, Button } from '@/components/button';
 
 import { getProjectCoverPaths } from '@/lib/images';
 
@@ -255,12 +256,11 @@ const Home = ({ images }) => {
                     <h1>Андрей Носов</h1>
                 </MeContainer>
                 <TextBlock>
-                    Привет! Мне 24, делаю web-сайты и дизайн, также
-                    интересуюсь направлением IoT (дипломный проект в
-                    магистратуре). Есть опыт создания цельных web-продуктов в
-                    рамках организованной мною web-студии. Уделяю особое
-                    внимание дизайну, стараясь с его помощью достичь
-                    поставленных задач.
+                    Привет! Мне 24, делаю web-сайты и дизайн, также интересуюсь
+                    направлением IoT (дипломный проект в магистратуре). Есть
+                    опыт создания цельных web-продуктов в рамках организованной
+                    мною web-студии. Уделяю особое внимание дизайну, стараясь с
+                    его помощью достичь поставленных задач.
                 </TextBlock>
                 <AnchorButton href='#contact'>Контакты</AnchorButton>
             </FirstBlock>
@@ -552,7 +552,7 @@ const Home = ({ images }) => {
                 <EmogiContainer>
                     <Image
                         priority
-                        alt='Переключатель (вкл.)'
+                        alt='Кладем письмо в почтовый ящик.'
                         src='/assets/postbox.png'
                         layout='fixed'
                         width={80}
@@ -560,13 +560,20 @@ const Home = ({ images }) => {
                     />
                     <Image
                         priority
-                        alt='Переключатель (вкл.)'
+                        alt='Радуемся!'
                         src='/assets/partying-face.png'
                         layout='fixed'
                         width={80}
                         height={80}
                     />
                 </EmogiContainer>
+                <Button
+                    onClick={() =>
+                        download(`${process.env.HOST}/files/nosov_cv.pdf`)
+                    }
+                >
+                    Скачать резюме в .pdf
+                </Button>
             </ContactBlock>
         </Layout>
     );
